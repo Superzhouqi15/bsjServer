@@ -1,0 +1,21 @@
+server:
+  port: 8099
+spring:
+  profiles:
+    active: a
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bsj
+      username: root
+      password: Superzhouqi/15
+      authentication-database: admin
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
