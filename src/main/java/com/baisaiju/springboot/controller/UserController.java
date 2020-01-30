@@ -69,6 +69,12 @@ public class UserController {
     }
 
     @ResponseBody
+    @PostMapping("/judgeUser")
+    public User judgeUser(@RequestBody Map<String, Object> data){
+        return userTemplate.findByOpenId(data.get("openId").toString());
+    }
+
+    @ResponseBody
     @PostMapping("/newUser")
     public String newUser(@RequestBody Map<String, Object> data){
        User user = new User();
