@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>推荐赛事</title>
+</head>
+<body>
+<div th:text="${param.competitionName}"></div>
+<span>相似的比赛：</span>
+<table>
+   <tr th:each="c, cState:${list}">
+       <td th:text="${c.getCompetitionName()}"></td>
+       <td th:text="${c.getType()}"></td>
+   </tr>
+</table>
+
+
+
+</body>
+</html>

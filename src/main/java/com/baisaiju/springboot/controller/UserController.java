@@ -1,6 +1,10 @@
 package com.baisaiju.springboot.controller;
 
+import com.baisaiju.springboot.dao.CompetitionTemplate;
 import com.baisaiju.springboot.dao.UserTemplate;
+import com.baisaiju.springboot.entities.Competition;
+import com.baisaiju.springboot.entities.User;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +24,8 @@ public class UserController {
 
     @Autowired
     private UserTemplate userTemplate;
+    @Autowired
+    private CompetitionTemplate competitionTemplate;
 
     @ResponseBody
     @PostMapping("/getOpenId")
@@ -53,6 +59,33 @@ public class UserController {
         }
         System.out.println(result.toString());
         return result.get(0);
+    }
+
+    @ResponseBody
+    @PostMapping("/getFavorite")
+    public List<Competition> getFavorite(@RequestBody Map<String, Object> data){
+        User user = userTemplate.findByOpenId(data.get("openId").toString());
+        return competitionTemplate.findFavorite(user.getFavorite());
+    }
+
+    @ResponseBody
+    @PostMapping("/newUser")
+    public String newUser(@RequestBody Map<String, Object> data){
+       User user = new User();
+       user.setFavorite(new ArrayList<>());
+       user.setOpenId(data.get("openId").toString());
+       user.setUserName(data.get("userName").toString());
+       userTemplate.save(user);
+       return "Success";
+    }
+
+    @ResponseBody
+    @PostMapping("/addFavorite")
+    public String addFavorite(@RequestBody Map<String, Object> data){
+       User user = userTemplate.findByOpenId(data.get("openID").toString());
+       user.addFavorite((ObjectId) data.get("objectId"));
+       userTemplate.save(user);
+       return "Success";
     }
 
 
