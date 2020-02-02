@@ -19,8 +19,8 @@ public class CompetitionController {
     private CompetitionTemplate competitionTemplate;
 
     @ResponseBody
-    @GetMapping("/addCompetition")
-    public void addCompetition(){
+    @GetMapping("/addCompetition1")
+    public void addCompetition1() {
 //        String competitionName = (String)map.get("competitionName");
 //        List<String> type = (List<String>)map.get("type");
 
@@ -42,15 +42,15 @@ public class CompetitionController {
 
     @ResponseBody
     @GetMapping("/findAll")
-    public List<Competition> findAll(){
+    public List<Competition> findAll() {
         return competitionTemplate.findAll();
     }
 
 
     @GetMapping("/recommend")
-    public String recommend(@RequestParam String competitionName, Model model){
+    public String recommend(@RequestParam String competitionName, Model model) {
 
-        Map<Competition,Double> sortMap = new HashMap<Competition, Double>();
+        Map<Competition, Double> sortMap = new HashMap<Competition, Double>();
 
         Competition competition = competitionTemplate.findOneByName(competitionName);
         List<String> type = competition.getType();
@@ -58,28 +58,41 @@ public class CompetitionController {
 
         List<Competition> allCompetiton = competitionTemplate.findAll();
 
-            for(Competition c:allCompetiton){
-                double jiao = 0;
+        for (Competition c : allCompetiton) {
+            double jiao = 0;
 
-                for(String t:type){
-                    for(String ct:c.getType()){
-                        if(t.equals(ct)){
-                            jiao++;
-                        }
+            for (String t : type) {
+                for (String ct : c.getType()) {
+                    if (t.equals(ct)) {
+                        jiao++;
                     }
                 }
-                double bin = type.size() + c.getType().size() - jiao;
-
-                double rate = jiao / bin;
-                System.out.println( "交集长度" + jiao + "并集长度" + bin);
-                sortMap.put(c,rate);
-
             }
+            double bin = type.size() + c.getType().size() - jiao;
 
+            double rate = jiao / bin;
+            System.out.println("交集长度" + jiao + "并集长度" + bin);
+            sortMap.put(c, rate);
+
+        }
         List<Competition> list;
         list = SortList.sortByValueDescending(sortMap);
         model.addAttribute("list", list);
         //return SortList.sortByValueDescending(sortMap);
         return "recommend";
+    }
+
+    @ResponseBody
+    @PostMapping("/addCompetition")
+    public String addCompetition(@RequestBody Map<String, Object> data){
+       Competition competition = new Competition();
+       competition.setCompetitionName(data.get("competitionName").toString());
+       competition.setIntroduction(data.get("introduction").toString());
+       competition.setMember(data.get("member").toString());
+       competition.setMethod(data.get("method").toString());
+       competition.setOrganization(data.get("organization").toString());
+       competition.setType((List) data.get("type"));
+       competitionTemplate.save(competition);
+       return "Success";
     }
 }
