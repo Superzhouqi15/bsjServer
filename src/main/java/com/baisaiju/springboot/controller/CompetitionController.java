@@ -79,7 +79,7 @@ public class CompetitionController {
         List<Competition> list;
         list = SortList.sortByValueDescending(sortMap);
         model.addAttribute("list", list);
-        //return SortList.sortByValueDescending(sortMap);
+
         return "recommend";
     }
 }
