@@ -48,4 +48,14 @@ public class User {
         this.getFavorite().add(objectId);
     }
 
+    public void delFavorite(ObjectId objectId){
+        List<ObjectId> tmpList = this.getFavorite();
+        for (int index = 0; index < this.getFavorite().size(); index++){
+            if (tmpList.get(index) == objectId){
+               this.getFavorite().remove(index);
+               return;
+            }
+        }
+    }
+
 }

@@ -19,8 +19,8 @@ public class CompetitionController {
     private CompetitionTemplate competitionTemplate;
 
     @ResponseBody
-    @GetMapping("/addCompetition")
-    public void addCompetition() {
+    @GetMapping("/addCompetition1")
+    public void addCompetition1() {
 //        String competitionName = (String)map.get("competitionName");
 //        List<String> type = (List<String>)map.get("type");
 

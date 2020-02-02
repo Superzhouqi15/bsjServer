@@ -88,10 +88,19 @@ public class UserController {
     @ResponseBody
     @PostMapping("/addFavorite")
     public String addFavorite(@RequestBody Map<String, Object> data){
-       User user = userTemplate.findByOpenId(data.get("openID").toString());
+       User user = userTemplate.findByOpenId(data.get("openId").toString());
        user.addFavorite((ObjectId) data.get("objectId"));
        userTemplate.save(user);
        return "Success";
+    }
+
+    @ResponseBody
+    @PostMapping("/delFavorite")
+    public String delFavorite(@RequestBody Map<String, Object> data){
+        User user = userTemplate.findByOpenId(data.get("openId").toString());
+        user.delFavorite((ObjectId) data.get("objectId"));
+        userTemplate.save(user);
+        return "Success";
     }
 
 
