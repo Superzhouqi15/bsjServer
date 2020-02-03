@@ -1,8 +1,11 @@
 package com.baisaiju.springboot.controller;
 
 import com.baisaiju.springboot.dao.CompetitionTemplate;
+import com.baisaiju.springboot.dao.UserTemplate;
 import com.baisaiju.springboot.entities.Competition;
+import com.baisaiju.springboot.entities.User;
 import com.baisaiju.springboot.utils.SortList;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,27 +21,9 @@ public class CompetitionController {
     @Autowired
     private CompetitionTemplate competitionTemplate;
 
-    @ResponseBody
-    @GetMapping("/addCompetition1")
-    public void addCompetition1() {
-//        String competitionName = (String)map.get("competitionName");
-//        List<String> type = (List<String>)map.get("type");
+    @Autowired
+    private UserTemplate userTemplate;
 
-        String competitionName = "蓝桥杯";
-        List<String> type = new ArrayList<String>();
-        type.add("计算机");
-        type.add("算法");
-//        type.add("建模");
-
-
-        Competition competition = new Competition();
-        competition.setCompetitionName(competitionName);
-        competition.setType(type);
-
-        System.out.println("保存");
-        competitionTemplate.save(competition);
-
-    }
 
     @ResponseBody
     @GetMapping("/findAll")
@@ -47,39 +32,73 @@ public class CompetitionController {
     }
 
 
-    @GetMapping("/recommend")
-    public String recommend(@RequestParam String competitionName, Model model) {
+    @ResponseBody
+    @PostMapping("/recommend")
+    public Set<Competition> recommend(Map<String, Object> map) {
+        String openId = (String) map.get("openId");
+        User user = userTemplate.findByOpenId(openId);
+        //获取用户喜爱的标签
+        List<String> myType = user.getType();
 
-        Map<Competition, Double> sortMap = new HashMap<Competition, Double>();
+        //获取用户喜爱的比赛
+        List<Competition> myCompetition = competitionTemplate.findFavorite(user.getFavorite());
 
-        Competition competition = competitionTemplate.findOneByName(competitionName);
-        List<String> type = competition.getType();
+        Map<String, Integer> typeMap = new HashMap<>(); //最后的标签合集
+        for(String type : myType){
+            typeMap.put(type, 3);
+        }
 
+        for(Competition competition : myCompetition){
+            for(String type : competition.getType()){
+                int count = typeMap.containsKey(type)?typeMap.get(type):0;
+                typeMap.put(type, count + 1);
+            }
+        }
+
+        List<String> finalTypeList = SortList.sortByValueDescending(typeMap);
+        myType.clear(); //复用这个list，防止调用内存太多
+
+        for(int i = 0;i < 3;i++){  //选出最多3个标签
+            String type = finalTypeList.get(i);
+            if(type != null){
+                myType.add(type);
+            }else{
+                break;
+            }
+        }
+
+
+        Map<Competition, Double> competitionMap = new HashMap<Competition, Double>();
 
         List<Competition> allCompetiton = competitionTemplate.findAll();
-
         for (Competition c : allCompetiton) {
             double jiao = 0;
-
-            for (String t : type) {
+            for (String t : myType) {
                 for (String ct : c.getType()) {
                     if (t.equals(ct)) {
                         jiao++;
                     }
                 }
             }
-            double bin = type.size() + c.getType().size() - jiao;
-
+            double bin = myType.size() + c.getType().size() - jiao;
             double rate = jiao / bin;
-            System.out.println("交集长度" + jiao + "并集长度" + bin);
-            sortMap.put(c, rate);
+            competitionMap.put(c, rate);
 
         }
-        List<Competition> list;
-        list = SortList.sortByValueDescending(sortMap);
-        model.addAttribute("list", list);
+        List<Competition> recommendlist;
+        recommendlist = SortList.sortByValueDescending(competitionMap);
 
-        return "recommend";
+        Set<Competition> recommendSet = new HashSet<>();  //去重
+        for(int i = 0;i < 4;i++){  //选出基于内容的最多4个比赛来推荐，这里是担心比赛不够多
+            Competition competition = recommendlist.get(i);
+            if(competition != null){
+                recommendSet.add(competition);
+            }else{
+                break;
+            }
+        }
+
+        return recommendSet;
     }
 
     @ResponseBody
