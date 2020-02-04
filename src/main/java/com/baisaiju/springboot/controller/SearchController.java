@@ -1,11 +1,10 @@
 package com.baisaiju.springboot.controller;
 
-import com.baisaiju.springboot.dao.FeedbackTemplate;
-import com.baisaiju.springboot.entities.Feedback;
+import com.baisaiju.springboot.dao.SearchTemplate;
+import com.baisaiju.springboot.entities.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -14,14 +13,14 @@ import java.util.Map;
  * @author dav1d
  */
 @Controller
-public class FeedbackController {
+public class SearchController {
     @Autowired
-    FeedbackTemplate feedbackTemplate;
+    SearchTemplate searchTemplate;
 
     @ResponseBody
-    @PostMapping("/feedback")
-    public String addFeedback(@RequestBody Map<String, Object> data){
-        feedbackTemplate.add(data);
+    @PostMapping("/addSearch")
+    public String addSearch(Map<String, Object> data){
+        searchTemplate.addSearch(data);
         return "Success";
     }
 }
