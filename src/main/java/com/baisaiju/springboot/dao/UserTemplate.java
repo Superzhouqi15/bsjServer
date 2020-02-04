@@ -24,6 +24,10 @@ public class UserTemplate {
         return mongoTemplate.findOne(query, User.class);
     }
 
+    public List<User> findAll(){
+        return mongoTemplate.findAll(User.class);
+    }
+
 
 
 
