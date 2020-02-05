@@ -14,6 +14,16 @@ public class User {
     private String openId;
     private List<String> type;
     private List<ObjectId> favorite;
+    private List<String> type;
+
+
+    public List<String> getType(){
+        return type;
+    }
+
+    public void setType(List<String> type){
+        this.type = type;
+    }
 
     public ObjectId getId() {
         return id;
