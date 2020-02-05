@@ -2,12 +2,13 @@ package com.baisaiju.springboot.entities;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import lombok.Data;
 import java.util.List;
 
 /**
  * @author dav1d
  */
+@Data
 @Document(collection = "user")
 public class User {
     private ObjectId id;
@@ -15,48 +16,16 @@ public class User {
     private List<String> type;
     private List<ObjectId> favorite;
 
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public List<ObjectId> getFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(List<ObjectId> favorite) {
-        this.favorite = favorite;
-    }
-
-    public List<String> getType() {
-        return type;
-    }
-
-    public void setType(List<String> type) {
-        this.type = type;
-    }
-
-    public void addFavorite(ObjectId objectId){
+    public void addFavorite(ObjectId objectId) {
         this.getFavorite().add(objectId);
     }
 
-    public void delFavorite(ObjectId objectId){
+    public void delFavorite(ObjectId objectId) {
         List<ObjectId> tmpList = this.getFavorite();
-        for (int index = 0; index < this.getFavorite().size(); index++){
-            if (tmpList.get(index) == objectId){
-               this.getFavorite().remove(index);
-               return;
+        for (int index = 0; index < this.getFavorite().size(); index++) {
+            if (tmpList.get(index) == objectId) {
+                this.getFavorite().remove(index);
+                return;
             }
         }
     }

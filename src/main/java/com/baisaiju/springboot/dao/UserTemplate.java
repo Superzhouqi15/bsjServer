@@ -1,7 +1,6 @@
 package com.baisaiju.springboot.dao;
 
 import com.baisaiju.springboot.entities.Competition;
-import com.baisaiju.springboot.entities.Search;
 import com.baisaiju.springboot.entities.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,9 +6,12 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.Data;
+
 /**
  * @author dav1d
  */
+@Data
 @Document(collection = "classifier")
 public class Classifier{
     private ObjectId id;
@@ -20,29 +23,5 @@ public class Classifier{
             this.competitionList = new ArrayList<>();
         }
         this.getCompetitionList().add(objectId);
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public List<ObjectId> getCompetitionList() {
-        return competitionList;
-    }
-
-    public void setCompetitionList(List<ObjectId> competitionList) {
-        this.competitionList = competitionList;
     }
 }
