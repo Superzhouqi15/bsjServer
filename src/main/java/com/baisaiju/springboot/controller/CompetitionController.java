@@ -1,5 +1,6 @@
 package com.baisaiju.springboot.controller;
 
+import com.baisaiju.springboot.dao.ClassifierTemplate;
 import com.baisaiju.springboot.dao.CompetitionTemplate;
 import com.baisaiju.springboot.dao.UserTemplate;
 import com.baisaiju.springboot.entities.Competition;
@@ -20,7 +21,8 @@ import static java.util.stream.Collectors.toMap;
 public class CompetitionController {
     @Autowired
     private CompetitionTemplate competitionTemplate;
-
+    @Autowired
+    private ClassifierTemplate classifierTemplate;
     @Autowired
     private UserTemplate userTemplate;
 
@@ -30,6 +32,7 @@ public class CompetitionController {
     public List<Competition> findAll() {
         return competitionTemplate.findAll();
     }
+
 
 
     @ResponseBody
@@ -82,6 +85,12 @@ public class CompetitionController {
                     }
                 }
             }
+            final double bin = type.size() + c.getType().size() - jiao;
+
+            final double rate = jiao / bin;
+            System.out.println("交集长度" + jiao + "并集长度" + bin);
+            sortMap.put(c, rate);
+
             double bin = myType.size() + c.getType().size() - jiao;
             double rate = jiao / bin;
             competitionDoubleMap.put(c, rate);
@@ -95,7 +104,6 @@ public class CompetitionController {
         while(i < 3 && basedOnContentRecommendlist.get(i) != null){
             recommendSet.add(basedOnContentRecommendlist.get(i++));
         }
-
 
 
 
@@ -120,6 +128,7 @@ public class CompetitionController {
             userDoubleMap.put(otherUser, rate);
         }
 
+
         //基于用户相似度推荐
         List<User> basedOnUserRecommendList = SortList.sortByValueDescending(userDoubleMap);
 
@@ -139,25 +148,18 @@ public class CompetitionController {
         }
 
 
-
         /*
         基于搜索记录来推荐
          */
 
         return recommendSet;
+
     }
 
     @ResponseBody
     @PostMapping("/addCompetition")
-    public String addCompetition(@RequestBody Map<String, Object> data){
-       Competition competition = new Competition();
-       competition.setCompetitionName(data.get("competitionName").toString());
-       competition.setIntroduction(data.get("introduction").toString());
-       competition.setMember(data.get("member").toString());
-       competition.setMethod(data.get("method").toString());
-       competition.setOrganization(data.get("organization").toString());
-       competition.setType((List) data.get("type"));
-       competitionTemplate.save(competition);
-       return "Success";
+    public String addCompetition(@RequestBody Map<String, Object> data) {
+        competitionTemplate.addCompetition(data);
+        return "Success";
     }
 }

@@ -1,8 +1,10 @@
 package com.baisaiju.springboot.controller;
 
 import com.baisaiju.springboot.dao.CompetitionTemplate;
+import com.baisaiju.springboot.dao.SearchTemplate;
 import com.baisaiju.springboot.dao.UserTemplate;
 import com.baisaiju.springboot.entities.Competition;
+import com.baisaiju.springboot.entities.Search;
 import com.baisaiju.springboot.entities.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author dav1d
+ */
 @Controller
 public class UserController {
-
     @Autowired
     private UserTemplate userTemplate;
     @Autowired
     private CompetitionTemplate competitionTemplate;
+    @Autowired
+    SearchTemplate searchTemplate;
 
     @ResponseBody
     @PostMapping("/getOpenId")
@@ -37,7 +43,7 @@ public class UserController {
         try {
             System.out.println(dir.getAbsolutePath().replace("\\", "\\\\"));
             Process process = Runtime.getRuntime()
-                    .exec("python " + dir.getAbsolutePath() + "/python/getOpenid.py" + " " + code);
+                    .exec("python " + dir.getAbsolutePath() + "/python/getBsjOpenid.py" + " " + code);
             process.waitFor();
             BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream(), "UTF-8"));
             BufferedReader in1 = new BufferedReader(new InputStreamReader(process.getErrorStream(), "UTF-8"));
@@ -63,46 +69,37 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/getFavorite")
-    public List<Competition> getFavorite(@RequestBody Map<String, Object> data){
-        User user = userTemplate.findByOpenId(data.get("openId").toString());
-        return competitionTemplate.findFavorite(user.getFavorite());
+    public List<Competition> getFavorite(@RequestBody Map<String, Object> data) {
+        return userTemplate.getFavorite(data);
     }
 
     @ResponseBody
     @PostMapping("/judgeUser")
-    public User judgeUser(@RequestBody Map<String, Object> data){
+    public User judgeUser(@RequestBody Map<String, Object> data) {
         return userTemplate.findByOpenId(data.get("openId").toString());
     }
 
     @ResponseBody
     @PostMapping("/newUser")
-    public String newUser(@RequestBody Map<String, Object> data){
-       User user = new User();
-       user.setFavorite(new ArrayList<>());
-       user.setOpenId(data.get("openId").toString());
-       user.setUserName(data.get("userName").toString());
-       userTemplate.save(user);
-       return "Success";
+    public String newUser(@RequestBody Map<String, Object> data) {
+        userTemplate.newUser(data);
+        searchTemplate.newUser(data);
+        return "Success";
     }
 
     @ResponseBody
     @PostMapping("/addFavorite")
-    public String addFavorite(@RequestBody Map<String, Object> data){
-       User user = userTemplate.findByOpenId(data.get("openId").toString());
-       user.addFavorite((ObjectId) data.get("objectId"));
-       userTemplate.save(user);
-       return "Success";
+    public String addFavorite(@RequestBody Map<String, Object> data) {
+        userTemplate.addFavorite(data);
+        return "Success";
     }
 
     @ResponseBody
     @PostMapping("/delFavorite")
-    public String delFavorite(@RequestBody Map<String, Object> data){
-        User user = userTemplate.findByOpenId(data.get("openId").toString());
-        user.delFavorite((ObjectId) data.get("objectId"));
-        userTemplate.save(user);
+    public String delFavorite(@RequestBody Map<String, Object> data) {
+        userTemplate.delFavorite(data);
         return "Success";
     }
-
 
 
 }

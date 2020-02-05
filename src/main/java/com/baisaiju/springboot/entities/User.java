@@ -5,11 +5,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * @author dav1d
+ */
 @Document(collection = "user")
 public class User {
-    private String userName;
     private ObjectId id;
     private String openId;
+    private List<String> type;
     private List<ObjectId> favorite;
     private List<String> type;
 
@@ -46,12 +49,12 @@ public class User {
         this.favorite = favorite;
     }
 
-    public String getUserName() {
-        return userName;
+    public List<String> getType() {
+        return type;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setType(List<String> type) {
+        this.type = type;
     }
 
     public void addFavorite(ObjectId objectId){
