@@ -1,5 +1,6 @@
 package com.baisaiju.springboot.controller;
 
+import com.baisaiju.springboot.dao.ClassifierTemplate;
 import com.baisaiju.springboot.dao.CompetitionTemplate;
 import com.baisaiju.springboot.entities.Competition;
 import com.baisaiju.springboot.utils.SortList;
@@ -17,6 +18,8 @@ import static java.util.stream.Collectors.toMap;
 public class CompetitionController {
     @Autowired
     private CompetitionTemplate competitionTemplate;
+    @Autowired
+    private ClassifierTemplate classifierTemplate;
 
     @ResponseBody
     @GetMapping("/addCompetition1")

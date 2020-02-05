@@ -36,7 +36,7 @@ public class UserTemplate {
         User user = new User();
         user.setFavorite(new ArrayList<>());
         user.setOpenId(data.get("openId").toString());
-        user.setUserName(data.get("userName").toString());
+        user.setType((List<String>) data.get("type"));
         mongoTemplate.save(user);
     }
 
