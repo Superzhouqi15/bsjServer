@@ -14,6 +14,8 @@ public class Competition {
     private String organization;
     private String member;
     private String method;
+    private String startTime;
+    private String endTime;
     private String introduction;
     private String competitionName;
     private double star;
