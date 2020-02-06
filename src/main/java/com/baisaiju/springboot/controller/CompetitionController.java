@@ -37,9 +37,9 @@ public class CompetitionController {
 
 
 
-    //@ResponseBody
-    @GetMapping("/recommend")
-    public Set<Competition> recommend(Map<String, Object> map) {
+    @ResponseBody
+    @PostMapping("/recommend")
+    public Set<Competition> recommend(@RequestBody Map<String, Object> map) {
 
         /*
         现在有4种方法，
@@ -55,7 +55,9 @@ public class CompetitionController {
          */
         Set<Competition> recommendSet = new HashSet<>();
         String openId = (String) map.get("openId");
+        System.out.println("openId" + openId);
         User user = userTemplate.findByOpenId(openId);
+        System.out.println(user.toString());
         //获取用户喜爱的标签
         List<String> myType = user.getType();
 
@@ -88,7 +90,8 @@ public class CompetitionController {
 
         //选出基于初始标签的最多3个比赛来推荐，这里是担心比赛不够多
         int i = 0;
-        while(i < 3 && basedOnTypeRecommendlist.get(i) != null){
+        int len = basedOnTypeRecommendlist.size();
+        while(i < 3 && i < len){
             recommendSet.add(basedOnTypeRecommendlist.get(i++));
         }
 
@@ -99,7 +102,9 @@ public class CompetitionController {
         List<Competition> myCompetition = competitionTemplate.findFavorite(user.getFavorite());
         //获取所有用户
         List<User> allUser = userTemplate.findAll();
-
+        for(User user11 : allUser){
+            System.out.println(user11.getOpenId());
+        }
         //得到用户、比赛的二维数组
         int allUserSize = allUser.size();
         int allCompetitionSize = allCompetition.size();
@@ -148,15 +153,20 @@ public class CompetitionController {
                 double num = Math.sqrt(CArr[index1] * CArr[index2]);
                 if(num == 0){
                     semiArr[index1][index2] = 0;
+                }else{
+                    semiArr[index1][index2] = CCArr[index1][index2] / num;
                 }
-                semiArr[index1][index2] = CCArr[index1][index2] / num;
+
             }
         }
 
         //找到用户在全用户的位置
         int location = allUser.indexOf(user);
+
         int myCompetitionSize = myCompetition.size();
 
+        System.out.println(location);
+        System.out.println(myCompetitionSize);
         //用户收藏的比赛在全部比赛中的下标数组
         int[] userCompetitionIndex = new int[myCompetitionSize];
 
@@ -197,7 +207,8 @@ public class CompetitionController {
         List<Competition> basedOnContentRecommendlist = SortList.sortByValueDescending(competitionDoubleMap1);
         //选出基于内容的最多3个比赛来推荐，这里是担心比赛不够多
         i = 0;
-        while(i < 2 && basedOnContentRecommendlist.get(i) != null){
+        int len1 = basedOnContentRecommendlist.size();
+        while(i < 2 && i < len1){
             recommendSet.add(basedOnContentRecommendlist.get(i++));
         }
 
@@ -210,18 +221,18 @@ public class CompetitionController {
          */
         Map<User, Double> userDoubleMap = new HashMap<>();
         for(User otherUser : allUser){
-            double jiao = 0;
-            for(Competition mCompetition : myCompetition){
+            if(!otherUser.equals(user)){
+                double jiao = 0;
                 List<Competition> otherUserCompetition = competitionTemplate.findFavorite(otherUser.getFavorite());
                 for (Competition competition : otherUserCompetition){
-                    if(competition.equals(mCompetition)){
+                    if(myCompetition.contains(competition)){ //contain要改写，改成openid
                         jiao++;
                     }
                 }
+                double bin = otherUser.getFavorite().size() + myCompetition.size() - jiao;
+                double rate = jiao / bin;
+                userDoubleMap.put(otherUser, rate);
             }
-            double bin = otherUser.getFavorite().size() + myCompetition.size() - jiao;
-            double rate = jiao / bin;
-            userDoubleMap.put(otherUser, rate);
         }
 
 
@@ -230,15 +241,15 @@ public class CompetitionController {
 
         int j = 0;
         int index = 0;
-        while(j < 3 && basedOnContentRecommendlist.get(index) != null){
+        int len2 = basedOnUserRecommendList.size();
+        //选出前3个最相似的用户，共找出前3个用户的最多3个比赛来推荐
+        while(j < 3 && index < 3 && index < len2){
             User recommendUser = basedOnUserRecommendList.get(index++);
-            if(!recommendUser.equals(user)){//相似度最高的用户应该就是自己本身，先排除本身
-                List<Competition> recommendUserCompetition = competitionTemplate.findFavorite(recommendUser.getFavorite());
-                for(Competition competition : recommendUserCompetition){
-                    if(!recommendSet.contains(competition)){
-                        recommendSet.add(competition);
-                        j++;
-                    }
+            List<Competition> recommendUserCompetition = competitionTemplate.findFavorite(recommendUser.getFavorite());
+            for(Competition competition : recommendUserCompetition){
+                if(!myCompetition.contains(competition)){
+                    recommendSet.add(competition);
+                    j++;
                 }
             }
         }
@@ -249,9 +260,11 @@ public class CompetitionController {
          */
 
         //搜索list
-        List<String> searchList = searchTemplate.findByOpenId(openId).getSearchHistory();
+        //List<String> searchList = searchTemplate.findByOpenId(openId).getSearchHistory();
 
-
+        for(Competition sss : recommendSet){
+            System.out.println(sss);
+        }
 
         return recommendSet;
 

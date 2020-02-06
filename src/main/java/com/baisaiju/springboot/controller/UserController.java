@@ -57,11 +57,11 @@ public class UserController {
             // java代码中的process.waitFor()返回值为0表示我们调用python脚本成功，
             // 返回值为1表示调用python脚本失败，这和我们通常意义上见到的0与1定义正好相反
             int re = process.waitFor();
-            System.out.println(re);
+            //System.out.println(re);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(result.toString());
+        //System.out.println(result.toString());
         return result.get(0);
     }
 

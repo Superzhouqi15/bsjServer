@@ -4,17 +4,28 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author dav1d
  */
-@Data
+
 @Document(collection = "user")
 public class User {
     private ObjectId id;
     private String openId;
     private List<String> type;
     private List<ObjectId> favorite;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(getOpenId(), user.getOpenId()) &&
+                Objects.equals(getType(), user.getType()) &&
+                Objects.equals(getFavorite(), user.getFavorite());
+    }
 
 
     public List<String> getType(){
