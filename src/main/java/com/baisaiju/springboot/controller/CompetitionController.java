@@ -4,6 +4,8 @@ import com.baisaiju.springboot.dao.ClassifierTemplate;
 import com.baisaiju.springboot.dao.CompetitionTemplate;
 import com.baisaiju.springboot.entities.Competition;
 import com.baisaiju.springboot.utils.SortList;
+
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,6 +88,7 @@ public class CompetitionController {
     @PostMapping("/addCompetition")
     public String addCompetition(@RequestBody Map<String, Object> data) {
         competitionTemplate.addCompetition(data);
+        classifierTemplate.addCompetition((List)data.get("type"), new ObjectId(data.get("objectId").toString()));
         return "Success";
     }
 }
