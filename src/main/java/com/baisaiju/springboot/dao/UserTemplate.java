@@ -30,6 +30,7 @@ public class UserTemplate {
         return mongoTemplate.findOne(query, User.class);
     }
 
+
     public void newUser(Map<String, Object> data) {
         User user = new User();
         user.setFavorite(new ArrayList<>());
@@ -54,6 +55,13 @@ public class UserTemplate {
         User user = this.findByOpenId(data.get("openId").toString());
         return competitionTemplate.findFavorite(user.getFavorite());
     }
+
+    public List<User> findAll(){
+        return mongoTemplate.findAll(User.class);
+    }
+
+
+
 
 
 }
