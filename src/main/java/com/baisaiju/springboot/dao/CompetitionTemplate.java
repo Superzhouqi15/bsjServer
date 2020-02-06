@@ -7,11 +7,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +42,9 @@ public class CompetitionTemplate {
         competition.setMethod(data.get("method").toString());
         competition.setOrganization(data.get("organization").toString());
         competition.setType((List) data.get("type"));
+
+        competition.setStartTime(data.get("startTime").toString());
+        competition.setEndTime(data.get("endTime").toString());
 
         mongoTemplate.save(competition);
     }
