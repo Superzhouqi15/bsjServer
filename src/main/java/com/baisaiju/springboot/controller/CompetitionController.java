@@ -260,7 +260,9 @@ public class CompetitionController {
          */
 
         //搜索list
+
         //List<String> searchList = searchTemplate.findByOpenId(openId).getSearchHistory();
+
 
         for(Competition sss : recommendSet){
             System.out.println(sss);
@@ -274,6 +276,7 @@ public class CompetitionController {
     @PostMapping("/addCompetition")
     public String addCompetition(@RequestBody Map<String, Object> data) {
         competitionTemplate.addCompetition(data);
+        classifierTemplate.addCompetition((List)data.get("type"), new ObjectId(data.get("objectId").toString()));
         return "Success";
     }
 }
