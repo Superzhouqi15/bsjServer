@@ -46,6 +46,7 @@ public class CompetitionTemplate {
         competition.setMethod(data.get("method").toString());
         competition.setOrganization(data.get("organization").toString());
         competition.setType((List) data.get("type"));
+
         mongoTemplate.save(competition);
     }
 }

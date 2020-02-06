@@ -14,8 +14,6 @@ public class User {
     private String openId;
     private List<String> type;
     private List<ObjectId> favorite;
-    private List<String> type;
-
 
     public List<String> getType(){
         return type;
@@ -49,13 +47,6 @@ public class User {
         this.favorite = favorite;
     }
 
-    public List<String> getType() {
-        return type;
-    }
-
-    public void setType(List<String> type) {
-        this.type = type;
-    }
 
     public void addFavorite(ObjectId objectId){
         this.getFavorite().add(objectId);

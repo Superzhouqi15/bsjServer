@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -31,9 +32,11 @@ public class SearchTemplate {
         search.addSearchHistory(data.get("history").toString());
         mongoTemplate.save(search);
     }
+
     public void newUser(Map<String, Object> data) {
         Search search = new Search();
         search.setOpenId(data.get("openId").toString());
         mongoTemplate.save(search);
     }
+
 }
