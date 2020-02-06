@@ -42,8 +42,10 @@ public class CompetitionTemplate {
         competition.setMethod(data.get("method").toString());
         competition.setOrganization(data.get("organization").toString());
         competition.setType((List) data.get("type"));
+
         competition.setStartTime(data.get("startTime").toString());
         competition.setEndTime(data.get("endTime").toString());
+
         mongoTemplate.save(competition);
     }
 }
