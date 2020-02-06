@@ -15,6 +15,8 @@ import java.util.Map;
 public class CompetitionTemplate {
     @Autowired
     private MongoTemplate mongoTemplate;
+    @Autowired
+    private ClassifierTemplate classifierTemplate;
 
     public void save(Competition competition) {
         mongoTemplate.save(competition);
@@ -42,10 +44,11 @@ public class CompetitionTemplate {
         competition.setMethod(data.get("method").toString());
         competition.setOrganization(data.get("organization").toString());
         competition.setType((List) data.get("type"));
-
         competition.setStartTime(data.get("startTime").toString());
         competition.setEndTime(data.get("endTime").toString());
-
         mongoTemplate.save(competition);
+        Query query = Query.query(Criteria.where("competitionName").is(data.get("competitionName").toString()).and("introduction").is(data.get("introduction").toString()));
+        competition = mongoTemplate.findOne(query, Competition.class);
+        classifierTemplate.addCompetition((List)data.get("type"), competition.getId());
     }
 }
