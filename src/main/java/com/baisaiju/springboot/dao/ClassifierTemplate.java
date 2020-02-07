@@ -26,11 +26,12 @@ public class ClassifierTemplate {
 
     public void addCompetition(List<String> type, ObjectId objectId) {
         Iterator<String> it = type.iterator();
-        String tempType;
-        Query query;
-        Classifier classifier;
+        String tempType = "";
+        Query query = new Query();
+        Classifier classifier = new Classifier();
         while (it.hasNext()) {
             tempType = it.next();
+            System.out.println(tempType);
             query = Query.query(Criteria.where("type").is(tempType));
             classifier = mongoTemplate.findOne(query, Classifier.class);
             if (classifier == null) {
