@@ -9,6 +9,7 @@ import com.baisaiju.springboot.entities.Search;
 import com.baisaiju.springboot.entities.User;
 import com.baisaiju.springboot.utils.SortList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -297,9 +298,13 @@ public class CompetitionController {
         for(Competition sss : recommendSet){
             System.out.println(sss);
         }
+
+
+
         /*
         基于搜索记录来推荐
          */
+
         /*
         1.用openId来查找用户的搜索记录
         2.在搜索记录里选取10条记录
@@ -308,14 +313,67 @@ public class CompetitionController {
         5.选出前3个
          */
 
-        
+        List<String>[] mySearchList = searchTemplate.findByOpenId(openId).getSearchHistory();
+        System.out.println("搜索记录的长度 " + mySearchList.length);
+        Map<String, Integer> favouriteTypeMap = new HashMap<>();
+        for(int index1 = 0;index1 < mySearchList.length;index1++){
+            int length = mySearchList[index1].size();
+            for(int index2 = 0;index2 < length;index2++){
+                String type = mySearchList[index1].get(index2);
+                int count = favouriteTypeMap.containsKey(type) ? favouriteTypeMap.get(type) : 0;
+                favouriteTypeMap.put(type, count + 1);
+            }
+        }
+        List<String> predictFavouriteTypeList = SortList.sortByValueDescending(favouriteTypeMap);
+        System.out.println("-------搜索记录的所有标签");
+        for(String cc : predictFavouriteTypeList){
+            System.out.println(cc);
+        }
+        //选出基于初始标签的最多3个比赛来推荐，这里是担心比赛不够多
+        i = 0;
+        len = predictFavouriteTypeList.size();
+        List<String> finalType = new ArrayList<>();
+        while(i < 3 && i < len){
+            finalType.add(predictFavouriteTypeList.get(i++));
+        }
 
-        //搜索list
+        Map<Competition,Double> competitionDoubleMap2 = new HashMap<>();
+        for (Competition c : allCompetition) {
+            if(!myCompetition.contains(c)){
+                double jiao = 0;
+                for (String t : finalType) {
+                    for (String ct : c.getType()) {
+                        if (t.equals(ct)) {
+                            jiao++;
+                        }
+                    }
+                }
+                double bin = finalType.size() + c.getType().size() - jiao;
+                double rate = jiao / bin;
+                if(rate != 0){   // rate == 0 :无有效的搜索记录
+                    competitionDoubleMap2.put(c, rate);
+                }
 
-        //List<String> searchList = searchTemplate.findByOpenId(openId).getSearchHistory();
+            }
+
+        }
 
 
+        List<Competition> basedOnSearchRecommendList = SortList.sortByValueDescending(competitionDoubleMap2);
+        System.out.println("---------最后拟推荐的比赛列表");
+        for(Competition cc : basedOnSearchRecommendList){
+            System.out.println(cc);
+        }
+        len = basedOnSearchRecommendList.size();
+        int iii = 0;
+        while(iii < 3 && iii < len){
+            recommendSet.add(basedOnSearchRecommendList.get(iii++));
+        }
 
+        System.out.println("-------基于搜索记录推荐之后的set");
+        for(Competition sss : recommendSet){
+            System.out.println(sss);
+        }
         return recommendSet;
 
     }

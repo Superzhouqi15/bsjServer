@@ -1,6 +1,10 @@
 server:
   port: 8099
 spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
   profiles:
     active: a
   data:
@@ -8,9 +12,9 @@ spring:
       host: localhost
       port: 27017
       database: bsj
-      username: root
-      password: Superzhouqi/15
-      authentication-database: admin
+#      username: root
+#      password: Superzhouqi/15
+#      authentication-database: admin
   thymeleaf:
     cache: false
     prefix: classpath:/templates/

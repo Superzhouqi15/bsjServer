@@ -4,6 +4,7 @@ import com.baisaiju.springboot.dao.SearchTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -18,7 +19,7 @@ public class SearchController {
 
     @ResponseBody
     @PostMapping("/addSearch")
-    public String addSearch(Map<String, Object> data){
+    public String addSearch(@RequestBody Map<String, Object> data){
         searchTemplate.addSearch(data);
         return "Success";
     }
