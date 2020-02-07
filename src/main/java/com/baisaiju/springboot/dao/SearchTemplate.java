@@ -24,37 +24,26 @@ public class SearchTemplate {
         mongoTemplate.save(search);
     }
 
-    public Search findByOpenId(String openId) {
+    public List<Search> findByOpenId(String openId) {
         Query query = Query.query(Criteria.where("openId").is(openId));
-        return mongoTemplate.findOne(query, Search.class);
+        return mongoTemplate.find(query, Search.class);
     }
 
+
     public void addSearch(Map<String, Object> data) {
-        Search search = this.findByOpenId(data.get("openId").toString());
-        Search mainSearch = this.findByOpenId("main");
-        Iterator<String> temp = ((List<String>) data.get("type")).iterator();
-        String string = "";
-        while (temp.hasNext()) {
-            string = temp.next();
-            if (search.getTypeMap().get(string) != null) {
-                search.getTypeMap().put(string, search.getTypeMap().get(string) + 1);
-            } else {
-                search.getTypeMap().put(string, 1);
-            }
-            if (mainSearch.getTypeMap().get(string) != null) {
-                mainSearch.getTypeMap().put(string, mainSearch.getTypeMap().get(string) + 1);
-            } else {
-                mainSearch.getTypeMap().put(string, 1);
-            }
-        }
+        String openId = data.get("openId").toString();
+        Search search = new Search();
+        search.setOpenId(openId);
+        search.setType((List<String>) data.get("type"));
+        //search.setId();
+
         mongoTemplate.save(search);
-        mongoTemplate.save(mainSearch);
     }
 
     public void newUser(Map<String, Object> data) {
         Search search = new Search();
         search.setOpenId(data.get("openId").toString());
-        search.setTypeMap(new HashMap<>());
+        //search.setTypeMap(new HashMap<>());
         mongoTemplate.save(search);
     }
 

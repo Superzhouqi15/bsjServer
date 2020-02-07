@@ -5,6 +5,7 @@ import com.baisaiju.springboot.dao.CompetitionTemplate;
 import com.baisaiju.springboot.dao.SearchTemplate;
 import com.baisaiju.springboot.dao.UserTemplate;
 import com.baisaiju.springboot.entities.Competition;
+import com.baisaiju.springboot.entities.Search;
 import com.baisaiju.springboot.entities.User;
 import com.baisaiju.springboot.utils.SortList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -299,6 +300,15 @@ public class CompetitionController {
         /*
         基于搜索记录来推荐
          */
+        /*
+        1.用openId来查找用户的搜索记录
+        2.在搜索记录里选取10条记录
+        3.map选择3个标签
+        4.所有比赛来进行type的相似度对比
+        5.选出前3个
+         */
+
+        
 
         //搜索list
 

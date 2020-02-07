@@ -8,9 +8,9 @@ spring:
       host: localhost
       port: 27017
       database: bsj
-#      username: root
-#      password: Superzhouqi/15
-#      authentication-database: admin
+      username: root
+      password: Superzhouqi/15
+      authentication-database: admin
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -19,3 +19,4 @@ spring:
     mode: HTML5
     servlet:
       content-type: text/html
+
