@@ -52,7 +52,13 @@ public class UserTemplate {
     }
 
     public List<Competition> getFavorite(Map<String, Object> data) {
+        String openId = data.get("openId").toString();
+        System.out.println(" getFavourite      " + openId);
         User user = this.findByOpenId(data.get("openId").toString());
+        if(user == null){
+            return new ArrayList<>();
+        }
+
         return competitionTemplate.findFavorite(user.getFavorite());
     }
 
