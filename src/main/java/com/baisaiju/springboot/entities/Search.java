@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @author dav1d
@@ -16,6 +15,13 @@ import java.util.Stack;
 public class Search {
     private ObjectId id;
     private String openId;
-    private Stack<List<String>> typeStack;
+    private int current;
+    private List<String> searchHistory[];
+    
+	public void addSaerch(List<String> res) {
+        System.out.println(this.getSearchHistory());
+        this.getSearchHistory()[this.getCurrent()] = res;
+        this.setCurrent((this.getCurrent() + 1) % 10);
+	}
 
 }
