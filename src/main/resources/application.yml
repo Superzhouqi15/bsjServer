@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 server:
   port: 8099
+=======
+
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
 spring:
   profiles:
     active: a
@@ -7,6 +11,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
+<<<<<<< HEAD
       database: bsj
       username: root
       password: Superzhouqi/15
@@ -19,3 +24,7 @@ spring:
     mode: HTML5
     servlet:
       content-type: text/html
+=======
+      database: baisaiju
+
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660

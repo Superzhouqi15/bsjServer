@@ -1,14 +1,27 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
+<<<<<<< HEAD
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.baisaiju</groupId>
     <artifactId>baisaiju</artifactId>
+=======
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.baisaiju</groupId>
+    <artifactId>demo</artifactId>
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot</name>
     <description>Demo project for Spring Boot</description>
@@ -23,11 +36,14 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
+=======
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
@@ -58,4 +74,8 @@
         </plugins>
     </build>
 
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660

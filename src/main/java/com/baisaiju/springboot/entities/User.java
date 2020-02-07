@@ -1,5 +1,6 @@
 package com.baisaiju.springboot.entities;
 
+<<<<<<< HEAD
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
@@ -63,6 +64,16 @@ public class User {
                 return;
             }
         }
+=======
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")
+public class User {
+    private String username;
+
+
+    public User(){
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
     }
 
 }

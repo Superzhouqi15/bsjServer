@@ -1,5 +1,6 @@
 package com.baisaiju.springboot.dao;
 
+<<<<<<< HEAD
 import com.baisaiju.springboot.entities.Competition;
 import com.baisaiju.springboot.entities.User;
 import org.bson.types.ObjectId;
@@ -13,11 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
+
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
 @Component
 public class UserTemplate {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+<<<<<<< HEAD
     @Autowired
     private CompetitionTemplate competitionTemplate;
 
@@ -64,4 +72,6 @@ public class UserTemplate {
 
 
 
+=======
+>>>>>>> 6ff4a82f72e7f324976de3ecd6ec66662d253660
 }
