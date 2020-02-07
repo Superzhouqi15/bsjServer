@@ -1,16 +1,5 @@
 package com.baisaiju.springboot.controller;
 
-import com.baisaiju.springboot.dao.CompetitionTemplate;
-import com.baisaiju.springboot.dao.SearchTemplate;
-import com.baisaiju.springboot.dao.UserTemplate;
-import com.baisaiju.springboot.entities.Competition;
-import com.baisaiju.springboot.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +7,22 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.baisaiju.springboot.dao.CompetitionTemplate;
+import com.baisaiju.springboot.dao.SearchTemplate;
+import com.baisaiju.springboot.dao.UserTemplate;
+import com.baisaiju.springboot.entities.Competition;
+import com.baisaiju.springboot.entities.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author dav1d
@@ -97,6 +102,37 @@ public class UserController {
     public String delFavorite(@RequestBody Map<String, Object> data) {
         userTemplate.delFavorite(data);
         return "Success";
+    }
+
+    @ResponseBody
+    @PostMapping("/upload")
+    public String upload(HttpServletRequest request,
+                         @RequestParam("competitionName") String  competitionName,
+                         @RequestParam("introduction") String  introduction,
+                         @RequestParam("file") MultipartFile file) throws Exception{
+        //接收参数description
+        System.out.println("competitionName: " + competitionName);
+        System.out.println(file.toString());
+        //如果文件不为空，写入上传路径
+        // if (!file.isEmpty()){
+        //     //上传文件路径
+        //     String path = request.getServletContext().getRealPath("/upload/");
+        //     System.out.println("path = " + path);
+        //     //上传文件名
+        //     String filename = file.getOriginalFilename();
+        //     File filePath = new File(path, filename);
+        //     //判断路径是否存在，如果不存在就创建一个
+        //     if (!filePath.getParentFile().exists()){
+        //         filePath.getParentFile().mkdirs();
+        //     }
+        //     //将上传文件保存到一个目标文件当中
+        //     file.transferTo(new File(path+File.separator + filename));
+        //     System.out.println(filename);
+        //     return "success";
+        // }else {
+        //     return "error";
+        // }
+        return "test";
     }
 
 

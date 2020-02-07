@@ -6,14 +6,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Iterator;
-
-import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 @Component
 public class SearchTemplate {
@@ -30,23 +25,11 @@ public class SearchTemplate {
     }
 
     public void addSearch(Map<String, Object> data) {
+        System.out.println(data.get("openId"));
         Search search = this.findByOpenId(data.get("openId").toString());
         Search mainSearch = this.findByOpenId("main");
-        Iterator<String> temp = ((List<String>) data.get("type")).iterator();
-        String string = "";
-        while (temp.hasNext()) {
-            string = temp.next();
-            if (search.getTypeMap().get(string) != null) {
-                search.getTypeMap().put(string, search.getTypeMap().get(string) + 1);
-            } else {
-                search.getTypeMap().put(string, 1);
-            }
-            if (mainSearch.getTypeMap().get(string) != null) {
-                mainSearch.getTypeMap().put(string, mainSearch.getTypeMap().get(string) + 1);
-            } else {
-                mainSearch.getTypeMap().put(string, 1);
-            }
-        }
+        search.getTypeStack().add((List<String>)data.get("type"));
+        mainSearch.getTypeStack().add((List<String>)data.get("type"));
         mongoTemplate.save(search);
         mongoTemplate.save(mainSearch);
     }
@@ -54,7 +37,7 @@ public class SearchTemplate {
     public void newUser(Map<String, Object> data) {
         Search search = new Search();
         search.setOpenId(data.get("openId").toString());
-        search.setTypeMap(new HashMap<>());
+        search.setTypeStack(new Stack<>());
         mongoTemplate.save(search);
     }
 

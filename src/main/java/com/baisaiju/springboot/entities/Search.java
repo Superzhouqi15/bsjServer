@@ -5,7 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
-import java.util.Map;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * @author dav1d
@@ -15,6 +16,6 @@ import java.util.Map;
 public class Search {
     private ObjectId id;
     private String openId;
-    private Map<String, Integer> typeMap;
+    private Stack<List<String>> typeStack;
 
 }
