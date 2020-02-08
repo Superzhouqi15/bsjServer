@@ -20,6 +20,8 @@ public class Competition {
     private String introduction;
     private String competitionName;
     private double star;
+    private List<String> imagePathList;
+    private String filePath;
     private List<String> type;
 
     @Override
