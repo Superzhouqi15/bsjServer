@@ -19,7 +19,6 @@ public class Search {
     private List<String>[] searchHistory;
     
 	public void addSaerch(List<String> res) {
-        System.out.println(this.getSearchHistory());
         this.getSearchHistory()[this.getCurrent()] = res;
         this.setCurrent((this.getCurrent() + 1) % 10);
 	}

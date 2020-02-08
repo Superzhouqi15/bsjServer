@@ -8,6 +8,7 @@ import com.baisaiju.springboot.entities.Competition;
 import com.baisaiju.springboot.entities.Search;
 import com.baisaiju.springboot.entities.User;
 import com.baisaiju.springboot.utils.SortList;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -56,14 +57,11 @@ public class CompetitionController {
         Set<Competition> recommendSet = new HashSet<>();
         String openId = (String) map.get("openId");
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        System.out.println("访问时间： " + df.format(new Date()));// new Date()为获取当前系统时间
+        System.out.println("推荐系统访问时间： " + df.format(new Date()));// new Date()为获取当前系统时间
 
-        System.out.println("openId" + openId);
+        System.out.println("openId： " + openId);
         User user = userTemplate.findByOpenId(openId);
 
-        //获取用户喜爱的标签
-        //List<String> myType = user.getType();
-        System.out.println("我的标签");
 
 
 
@@ -74,9 +72,18 @@ public class CompetitionController {
         Map<Competition, Double> competitionDoubleMap = new HashMap<Competition, Double>();
         //获取所有比赛
         List<Competition> allCompetition = competitionTemplate.findAll();
-        for (Competition c : allCompetition) {
+
+        Set<Competition> competitions = new HashSet<Competition>();
+        for(String mt : myType) {
+            List<ObjectId> competitionId = classifierTemplate.findByType(mt);
+            for(ObjectId id : competitionId) {
+                competitions.add(competitionTemplate.findOneById(id));
+            }
+        }
+
+        for (Competition c : competitions) {
             Set<String> B3 = new HashSet<>(c.getType());
-            B3.retainAll(myType);  //求交集
+            B3.retainAll(myType);  //求交集//获得finalType中的各个标签所包含的比赛集合
             double jiao = B3.size();
             final double bin = myType.size() + c.getType().size() - jiao;
             final double rate = jiao / bin;
@@ -307,7 +314,16 @@ public class CompetitionController {
         Map<Competition,Double> competitionDoubleMap2 = new HashMap<>();
         Set<String> A = new HashSet<>(finalType);   //finalType集合
 
-        for (Competition c : allCompetition) {
+        //获得finalType中的各个标签所包含的比赛集合
+        competitions.clear();
+        for(String mt : finalType) {
+            List<ObjectId> competitionId = classifierTemplate.findByType(mt);
+            for(ObjectId id : competitionId) {
+                competitions.add(competitionTemplate.findOneById(id));
+            }
+        }
+
+        for (Competition c : competitions) {
             if (!myCompetition.contains(c)) {
                 Set<String> B = new HashSet<>(c.getType());
                 B.retainAll(A);  //求交集
@@ -329,6 +345,10 @@ public class CompetitionController {
             recommendSet.add(basedOnSearchRecommendList.get(iii++));
         }
 
+        System.out.println("最终推荐列表");
+        for(Competition cc : recommendSet){
+            System.out.println(cc);
+        }
 
         return recommendSet;
     }

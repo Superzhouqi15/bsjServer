@@ -90,6 +90,7 @@ public class UserController {
     @ResponseBody
     @PostMapping("/addFavorite")
     public String addFavorite(@RequestBody Map<String, Object> data) {
+        System.out.println(data);
         userTemplate.addFavorite(data);
         return "Success";
     }

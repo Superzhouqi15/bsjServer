@@ -42,6 +42,7 @@ public class UserTemplate {
     public void addFavorite(Map<String, Object> data) {
         User user = this.findByOpenId(data.get("openId").toString());
         user.addFavorite(new ObjectId(data.get("objectId").toString()));
+
         mongoTemplate.save(user);
     }
 
@@ -53,7 +54,6 @@ public class UserTemplate {
 
     public List<Competition> getFavorite(Map<String, Object> data) {
         String openId = data.get("openId").toString();
-        System.out.println(" getFavourite      " + openId);
         User user = this.findByOpenId(data.get("openId").toString());
         if(user == null){
             return new ArrayList<>();

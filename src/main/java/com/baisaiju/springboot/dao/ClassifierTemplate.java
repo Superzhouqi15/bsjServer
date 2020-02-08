@@ -31,7 +31,6 @@ public class ClassifierTemplate {
         Classifier classifier = new Classifier();
         while (it.hasNext()) {
             tempType = it.next();
-            System.out.println(tempType);
             query = Query.query(Criteria.where("type").is(tempType));
             classifier = mongoTemplate.findOne(query, Classifier.class);
             if (classifier == null) {
@@ -45,6 +44,7 @@ public class ClassifierTemplate {
 
     public List<ObjectId> findByType(String type) {
         Query query = Query.query(Criteria.where("type").is(type));
+        System.out.println("tpye" + type);
         return Objects.requireNonNull(mongoTemplate.findOne(query, Classifier.class)).getCompetitionList();
     }
 

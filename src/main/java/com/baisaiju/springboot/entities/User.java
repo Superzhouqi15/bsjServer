@@ -67,7 +67,6 @@ public class User {
 
     public void delFavorite(ObjectId objectId) {
         List<ObjectId> tmpList = this.getFavorite();
-        System.out.println(objectId.equals(tmpList.get(0)));
         for (int index = 0; index < this.getFavorite().size(); index++) {
             if (tmpList.get(index).equals(objectId)) {
                 this.getFavorite().remove(index);

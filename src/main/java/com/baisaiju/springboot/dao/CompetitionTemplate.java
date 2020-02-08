@@ -60,4 +60,10 @@ public class CompetitionTemplate {
         competition = mongoTemplate.findOne(query, Competition.class);
         classifierTemplate.addCompetition((List) data.get("type"), competition.getId());
     }
+
+    public Competition findOneById(ObjectId ObjectId) {
+        Query query = new Query(Criteria.where("_id").is(ObjectId));
+        return mongoTemplate.findOne(query, Competition.class);
+    }
+
 }
