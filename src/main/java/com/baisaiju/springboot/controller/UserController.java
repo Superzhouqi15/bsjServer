@@ -40,11 +40,11 @@ public class UserController {
     @PostMapping("/getOpenId")
     public String getOpenId(@RequestBody Map<String, Object> data) throws IOException {
         String code = data.get("code").toString();
-        System.out.println(code);
+
         File dir = new File("");
         List<String> result = new ArrayList<>();
         try {
-            System.out.println(dir.getAbsolutePath().replace("\\", "\\\\"));
+
             Process process = Runtime.getRuntime()
                     .exec("python " + dir.getAbsolutePath() + "/python/getBsjOpenid.py" + " " + code);
             process.waitFor();
@@ -53,11 +53,8 @@ public class UserController {
             String line = null;
             while ((line = in.readLine()) != null) {
                 result.add(line);
-                System.out.println(line);
             }
-            while ((line = in1.readLine()) != null) {
-                System.out.println(line);
-            }
+
             in.close();
             // java代码中的process.waitFor()返回值为0表示我们调用python脚本成功，
             // 返回值为1表示调用python脚本失败，这和我们通常意义上见到的0与1定义正好相反
@@ -128,7 +125,6 @@ public class UserController {
                 competition.setFilePath("https://www.tuppy.pub/test/file/" + filename);
                 competitionTemplate.save(competition);
             }
-            System.out.println("path = " + path);
             // 上传文件名
             File filePath = new File(path, filename);
             // 判断路径是否存在，如果不存在就创建一个
@@ -137,7 +133,6 @@ public class UserController {
             }
             // 将上传文件保存到一个目标文件当中
             file.transferTo(new File(path + File.separator + filename));
-            System.out.println(filename);
             return "success";
         } else {
             return "error";

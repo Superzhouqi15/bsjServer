@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -54,46 +55,42 @@ public class CompetitionController {
          */
         Set<Competition> recommendSet = new HashSet<>();
         String openId = (String) map.get("openId");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println("访问时间： " + df.format(new Date()));// new Date()为获取当前系统时间
+
         System.out.println("openId" + openId);
         User user = userTemplate.findByOpenId(openId);
 
         //获取用户喜爱的标签
-        List<String> myType = user.getType();
+        //List<String> myType = user.getType();
         System.out.println("我的标签");
-        for(String mt:myType){
-            System.out.println(mt);
-        }
+
 
 
         /*
         第一部分：基于初始标签
          */
+        Set<String> myType = new HashSet<>(user.getType());
         Map<Competition, Double> competitionDoubleMap = new HashMap<Competition, Double>();
         //获取所有比赛
         List<Competition> allCompetition = competitionTemplate.findAll();
         for (Competition c : allCompetition) {
-            double jiao = 0;
-            for (String t : myType) {
-                for (String ct : c.getType()) {
-                    if (t.equals(ct)) {
-                        jiao++;
-                    }
-                }
-            }
+            Set<String> B3 = new HashSet<>(c.getType());
+            B3.retainAll(myType);  //求交集
+            double jiao = B3.size();
             final double bin = myType.size() + c.getType().size() - jiao;
             final double rate = jiao / bin;
+            if(jiao != 0){
+                competitionDoubleMap.put(c, rate);
+            }
 
-            competitionDoubleMap.put(c, rate);
         }
 
 
 
         List<Competition> basedOnTypeRecommendlist = SortList.sortByValueDescending(competitionDoubleMap);
 
-        System.out.println("-----------基于标签来推荐的列表");
-        for(Competition cc : basedOnTypeRecommendlist){
-            System.out.println(cc);
-        }
+
         //选出基于初始标签的最多3个比赛来推荐，这里是担心比赛不够多
         int i = 0;
         int len = basedOnTypeRecommendlist.size();
@@ -101,10 +98,6 @@ public class CompetitionController {
             recommendSet.add(basedOnTypeRecommendlist.get(i++));
         }
 
-        System.out.println("-----------基于标签来推荐之后的set");
-        for(Competition cc : recommendSet){
-            System.out.println(cc);
-        }
 
 
 
@@ -141,13 +134,6 @@ public class CompetitionController {
             i1++;
         }
 
-        System.out.println("------UC（用户与比赛是否收藏）的数组");
-        for(int iii = 0;iii < allUserSize;iii++){
-            for(int j = 0;j < allCompetitionSize;j++){
-                System.out.print(UCArr[iii][j]);
-            }
-            System.out.println();
-        }
 
         //同时收藏比赛A和比赛B的用户数的数组
         //后面也许可以把这个数组改成相似度的数组
@@ -187,8 +173,7 @@ public class CompetitionController {
         int location = allUser.indexOf(user);
         int myCompetitionSize = myCompetition.size();
 
-        System.out.println("用户定位" + location);
-        System.out.println("我收藏的比赛的数量" + myCompetitionSize);
+
         //用户收藏的比赛在全部比赛中的下标数组
         int[] userCompetitionIndex = new int[myCompetitionSize];
 
@@ -218,24 +203,19 @@ public class CompetitionController {
                     count++;
                 }
             }
-            if(count == 0){
-                competitionDoubleMap1.put(allCompetition.get(index2),0.0);
-            }else{
+            if(count != 0){
                 competitionDoubleMap1.put(allCompetition.get(index2),sum / count);
             }
         }
         Set<Competition> set = competitionDoubleMap1.keySet();
-        System.out.println("----------基于物品相似度的map");
+
         for(Competition cc:set){
             System.out.println(cc + "   " + competitionDoubleMap1.get(cc));
         }
         //对map进行排序
         List<Competition> basedOnContentRecommendlist = SortList.sortByValueDescending(competitionDoubleMap1);
         //选出基于内容的最多3个比赛来推荐，这里是担心比赛不够多
-        System.out.println("-------基于物品相似度的推荐列表");
-        for(Competition cc:basedOnContentRecommendlist){
-            System.out.println(cc);
-        }
+
         i = 0;
         int len1 = basedOnContentRecommendlist.size();
         while(i < 2 && i < len1){
@@ -243,25 +223,20 @@ public class CompetitionController {
         }
 
 
-        System.out.println("------基于物品推荐之后的set");
-        for(Competition cc : recommendSet){
-            System.out.println(cc);
-        }
+
+
 
 
         /*
         第三部分：基于用户的相似度
          */
+        Set<Competition> A3 = new HashSet<>(myCompetition);
         Map<User, Double> userDoubleMap = new HashMap<>();
         for(User otherUser : allUser){
             if(!otherUser.equals(user)){
-                double jiao = 0;
-                List<Competition> otherUserCompetition = competitionTemplate.findFavorite(otherUser.getFavorite());
-                for (Competition competition : otherUserCompetition){
-                    if(myCompetition.contains(competition)){ //contain要改写，改成openid
-                        jiao++;
-                    }
-                }
+                Set<Competition> B3 = new HashSet<>(competitionTemplate.findFavorite(otherUser.getFavorite()));
+                B3.retainAll(A3);  //求交集
+                double jiao = B3.size();
                 double bin = otherUser.getFavorite().size() + myCompetition.size() - jiao;
                 double rate = jiao / bin;
                 userDoubleMap.put(otherUser, rate);
@@ -271,10 +246,7 @@ public class CompetitionController {
 
         //基于用户相似度推荐
         List<User> basedOnUserRecommendList = SortList.sortByValueDescending(userDoubleMap);
-        System.out.println("--------------基于用户相似度的推荐用户列表");
-        for(User user1:basedOnUserRecommendList){
-            System.out.println(user1);
-        }
+
 
         int j = 0;
         int index = 0;
@@ -285,8 +257,7 @@ public class CompetitionController {
             List<Competition> recommendUserCompetition = competitionTemplate.findFavorite(recommendUser.getFavorite());
 
             for(Competition competition : recommendUserCompetition){
-                System.out.println("--------被推荐的用户的比赛");
-                System.out.println(competition);
+
                 if(!myCompetition.contains(competition)){
                     recommendSet.add(competition);
                     j++;
@@ -294,10 +265,7 @@ public class CompetitionController {
             }
         }
 
-        System.out.println("-----------基于用户相似度来推荐之后的set");
-        for(Competition sss : recommendSet){
-            System.out.println(sss);
-        }
+
 
 
 
@@ -313,8 +281,9 @@ public class CompetitionController {
         5.选出前3个
          */
 
+
         List<String>[] mySearchList = searchTemplate.findByOpenId(openId).getSearchHistory();
-        System.out.println("搜索记录的长度 " + mySearchList.length);
+
         Map<String, Integer> favouriteTypeMap = new HashMap<>();
         for(int index1 = 0;index1 < mySearchList.length;index1++){
             int length = mySearchList[index1].size();
@@ -325,10 +294,8 @@ public class CompetitionController {
             }
         }
         List<String> predictFavouriteTypeList = SortList.sortByValueDescending(favouriteTypeMap);
-        System.out.println("-------搜索记录的所有标签");
-        for(String cc : predictFavouriteTypeList){
-            System.out.println(cc);
-        }
+
+
         //选出基于初始标签的最多3个比赛来推荐，这里是担心比赛不够多
         i = 0;
         len = predictFavouriteTypeList.size();
@@ -338,45 +305,34 @@ public class CompetitionController {
         }
 
         Map<Competition,Double> competitionDoubleMap2 = new HashMap<>();
+        Set<String> A = new HashSet<>(finalType);   //finalType集合
+
         for (Competition c : allCompetition) {
-            if(!myCompetition.contains(c)){
-                double jiao = 0;
-                for (String t : finalType) {
-                    for (String ct : c.getType()) {
-                        if (t.equals(ct)) {
-                            jiao++;
-                        }
-                    }
-                }
+            if (!myCompetition.contains(c)) {
+                Set<String> B = new HashSet<>(c.getType());
+                B.retainAll(A);  //求交集
+
+                double jiao = B.size();
                 double bin = finalType.size() + c.getType().size() - jiao;
                 double rate = jiao / bin;
-                if(rate != 0){   // rate == 0 :无有效的搜索记录
+                if (rate != 0) { // rate == 0 :无有效的搜索记录
                     competitionDoubleMap2.put(c, rate);
                 }
-
             }
-
         }
-
 
         List<Competition> basedOnSearchRecommendList = SortList.sortByValueDescending(competitionDoubleMap2);
-        System.out.println("---------最后拟推荐的比赛列表");
-        for(Competition cc : basedOnSearchRecommendList){
-            System.out.println(cc);
-        }
+
         len = basedOnSearchRecommendList.size();
         int iii = 0;
         while(iii < 3 && iii < len){
             recommendSet.add(basedOnSearchRecommendList.get(iii++));
         }
 
-        System.out.println("-------基于搜索记录推荐之后的set");
-        for(Competition sss : recommendSet){
-            System.out.println(sss);
-        }
-        return recommendSet;
 
+        return recommendSet;
     }
+
 
     @ResponseBody
     @PostMapping("/addCompetition")
