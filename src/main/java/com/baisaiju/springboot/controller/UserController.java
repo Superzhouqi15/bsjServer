@@ -62,11 +62,11 @@ public class UserController {
             // java代码中的process.waitFor()返回值为0表示我们调用python脚本成功，
             // 返回值为1表示调用python脚本失败，这和我们通常意义上见到的0与1定义正好相反
             int re = process.waitFor();
-            //System.out.println(re);
+            // System.out.println(re);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //System.out.println(result.toString());
+        // System.out.println(result.toString());
         return result.get(0);
     }
 
@@ -106,34 +106,42 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/upload")
-    public String upload(HttpServletRequest request,
-                         @RequestParam("competitionName") String  competitionName,
-                         @RequestParam("introduction") String  introduction,
-                         @RequestParam("file") MultipartFile file) throws Exception{
-        //接收参数description
-        System.out.println("competitionName: " + competitionName);
-        System.out.println(file.toString());
-        //如果文件不为空，写入上传路径
-        // if (!file.isEmpty()){
-        //     //上传文件路径
-        //     String path = request.getServletContext().getRealPath("/upload/");
-        //     System.out.println("path = " + path);
-        //     //上传文件名
-        //     String filename = file.getOriginalFilename();
-        //     File filePath = new File(path, filename);
-        //     //判断路径是否存在，如果不存在就创建一个
-        //     if (!filePath.getParentFile().exists()){
-        //         filePath.getParentFile().mkdirs();
-        //     }
-        //     //将上传文件保存到一个目标文件当中
-        //     file.transferTo(new File(path+File.separator + filename));
-        //     System.out.println(filename);
-        //     return "success";
-        // }else {
-        //     return "error";
-        // }
-        return "test";
+    public String upload(HttpServletRequest request, @RequestParam("competitionName") String competitionName,
+            @RequestParam("introduction") String introduction, @RequestParam("type") String type, @RequestParam("fileName") String uploadFileName,
+            @RequestParam("file") MultipartFile file) throws Exception {
+        // 接收参数description
+        Competition competition = competitionTemplate.findOneByNameAndIntroduction(competitionName, introduction);
+        // 如果文件不为空，写入上传路径
+        if (!file.isEmpty()) {
+            // 上传文件路径
+            // String path = request.getServletContext().getRealPath("/upload/");
+            String path = "";
+            String filename = "";
+            if (type.equals("image")) {
+                path = "/usr/share/nginx/html/test/image/";
+                filename = competition.getId().toString() + competition.getImagePathList().size() + "image.jpg";
+                competition.getImagePathList().add("https://www.tuppy.pub/test/image/" + filename);
+                competitionTemplate.save(competition);
+            } else if (type.equals("file")) {
+                path = "/usr/share/nginx/html/test/file/";
+                filename = uploadFileName;
+                competition.setFilePath("https://www.tuppy.pub/test/file/" + filename);
+                competitionTemplate.save(competition);
+            }
+            System.out.println("path = " + path);
+            // 上传文件名
+            File filePath = new File(path, filename);
+            // 判断路径是否存在，如果不存在就创建一个
+            if (!filePath.getParentFile().exists()) {
+                filePath.getParentFile().mkdirs();
+            }
+            // 将上传文件保存到一个目标文件当中
+            file.transferTo(new File(path + File.separator + filename));
+            System.out.println(filename);
+            return "success";
+        } else {
+            return "error";
+        }
     }
-
 
 }
