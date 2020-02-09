@@ -28,7 +28,7 @@ public class SearchTemplate {
 
 
     public void addSearch(Map<String, Object> data) {
-        System.out.println("添加搜索");
+
         Search search = this.findByOpenId(data.get("openId").toString());
         search.addSaerch((List)data.get("type"));
 

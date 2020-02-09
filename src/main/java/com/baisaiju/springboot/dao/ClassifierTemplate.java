@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
@@ -44,8 +45,13 @@ public class ClassifierTemplate {
 
     public List<ObjectId> findByType(String type) {
         Query query = Query.query(Criteria.where("type").is(type));
-        System.out.println("tpye" + type);
-        return Objects.requireNonNull(mongoTemplate.findOne(query, Classifier.class)).getCompetitionList();
+        Classifier cf = mongoTemplate.findOne(query, Classifier.class);
+        System.out.println(cf);
+        if(cf != null){
+            return Objects.requireNonNull(cf).getCompetitionList();
+        }
+        else return new ArrayList<ObjectId>();
+
     }
 
 }

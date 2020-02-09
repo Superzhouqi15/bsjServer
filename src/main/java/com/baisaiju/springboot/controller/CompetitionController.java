@@ -75,6 +75,7 @@ public class CompetitionController {
 
         Set<Competition> competitions = new HashSet<Competition>();
         for(String mt : myType) {
+
             List<ObjectId> competitionId = classifierTemplate.findByType(mt);
             for(ObjectId id : competitionId) {
                 competitions.add(competitionTemplate.findOneById(id));
