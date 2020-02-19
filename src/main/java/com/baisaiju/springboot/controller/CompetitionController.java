@@ -59,7 +59,6 @@ public class CompetitionController {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         System.out.println("推荐系统访问时间： " + df.format(new Date()));// new Date()为获取当前系统时间
 
-        System.out.println("openId： " + openId);
         User user = userTemplate.findByOpenId(openId);
 
 
@@ -75,7 +74,6 @@ public class CompetitionController {
 
         Set<Competition> competitions = new HashSet<Competition>();
         for(String mt : myType) {
-
             List<ObjectId> competitionId = classifierTemplate.findByType(mt);
             for(ObjectId id : competitionId) {
                 competitions.add(competitionTemplate.findOneById(id));
@@ -117,9 +115,7 @@ public class CompetitionController {
         List<Competition> myCompetition = competitionTemplate.findFavorite(user.getFavorite());
         //获取所有用户
         List<User> allUser = userTemplate.findAll();
-        for(User user11 : allUser){
-            System.out.println(user11.getOpenId());
-        }
+
         //得到用户、比赛的二维数组
         int allUserSize = allUser.size();
         int allCompetitionSize = allCompetition.size();
@@ -216,10 +212,6 @@ public class CompetitionController {
             }
         }
         Set<Competition> set = competitionDoubleMap1.keySet();
-
-        for(Competition cc:set){
-            System.out.println(cc + "   " + competitionDoubleMap1.get(cc));
-        }
         //对map进行排序
         List<Competition> basedOnContentRecommendlist = SortList.sortByValueDescending(competitionDoubleMap1);
         //选出基于内容的最多3个比赛来推荐，这里是担心比赛不够多
@@ -289,7 +281,6 @@ public class CompetitionController {
         5.选出前3个
          */
 
-
         List<String>[] mySearchList = searchTemplate.findByOpenId(openId).getSearchHistory();
 
         Map<String, Integer> favouriteTypeMap = new HashMap<>();
@@ -304,7 +295,7 @@ public class CompetitionController {
         List<String> predictFavouriteTypeList = SortList.sortByValueDescending(favouriteTypeMap);
 
 
-        //选出基于初始标签的最多3个比赛来推荐，这里是担心比赛不够多
+        //选出基于搜索记录的3个比赛来推荐，这里是担心比赛不够多
         i = 0;
         len = predictFavouriteTypeList.size();
         List<String> finalType = new ArrayList<>();
@@ -317,12 +308,14 @@ public class CompetitionController {
 
         //获得finalType中的各个标签所包含的比赛集合
         competitions.clear();
+
         for(String mt : finalType) {
             List<ObjectId> competitionId = classifierTemplate.findByType(mt);
             for(ObjectId id : competitionId) {
                 competitions.add(competitionTemplate.findOneById(id));
             }
         }
+
 
         for (Competition c : competitions) {
             if (!myCompetition.contains(c)) {

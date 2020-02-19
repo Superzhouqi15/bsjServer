@@ -46,7 +46,7 @@ public class ClassifierTemplate {
     public List<ObjectId> findByType(String type) {
         Query query = Query.query(Criteria.where("type").is(type));
         Classifier cf = mongoTemplate.findOne(query, Classifier.class);
-        System.out.println(cf);
+
         if(cf != null){
             return Objects.requireNonNull(cf).getCompetitionList();
         }

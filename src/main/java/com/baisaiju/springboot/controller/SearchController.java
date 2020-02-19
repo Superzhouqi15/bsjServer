@@ -22,7 +22,6 @@ public class SearchController {
     @ResponseBody
     @PostMapping("/addSearch")
     public String addSearch(@RequestBody Map<String, Object> data){
-        System.out.println("搜索添加" + data.get("type"));
         List<String> list = (List<String>)(data.get("type"));
         if(list.size() == 0){
             return "empty";
