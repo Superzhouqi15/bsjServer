@@ -620,3 +620,42 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
+2020-02-19 17:20:33.419  INFO 17912 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on Star with PID 17912 (C:\Users\dav1d\Documents\Ch\JavaProject\server\bsjSpringBoot\target\classes started by dav1d in c:\Users\dav1d\Documents\Ch\JavaProject\server\bsjSpringBoot)
+2020-02-19 17:20:33.422  INFO 17912 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
+2020-02-19 17:20:34.071  INFO 17912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-02-19 17:20:34.092  INFO 17912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 MongoDB repository interfaces.
+2020-02-19 17:20:34.611  INFO 17912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2020-02-19 17:20:34.622  INFO 17912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-19 17:20:34.622  INFO 17912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-19 17:20:34.723  INFO 17912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-19 17:20:34.724  INFO 17912 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1251 ms
+2020-02-19 17:20:34.969  INFO 17912 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-02-19 17:20:34.970  INFO 17912 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2020-02-19 17:20:35.035  INFO 17912 --- [cluster-ClusterId{value='5e4cfde287825d28d7d7fc7a', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+2020-02-19 17:20:35.046  INFO 17912 --- [cluster-ClusterId{value='5e4cfde287825d28d7d7fc7a', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7049700}
+2020-02-19 17:20:35.047  INFO 17912 --- [cluster-ClusterId{value='5e4cfde287825d28d7d7fc7a', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2020-02-19 17:20:35.437  INFO 17912 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 17:20:35.574  WARN 17912 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-02-19 17:20:35.832  INFO 17912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2020-02-19 17:20:35.836  INFO 17912 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 2.835 seconds (JVM running for 3.498)
+2020-02-19 17:31:46.753  INFO 12848 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on Star with PID 12848 (C:\Users\dav1d\Documents\Ch\JavaProject\server\bsjSpringBoot\target\classes started by dav1d in C:\Users\dav1d\Documents\Ch\JavaProject\server\bsjSpringBoot)
+2020-02-19 17:31:46.756  INFO 12848 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
+2020-02-19 17:31:47.284  INFO 12848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-02-19 17:31:47.300  INFO 12848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 MongoDB repository interfaces.
+2020-02-19 17:31:47.669  INFO 12848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2020-02-19 17:31:47.677  INFO 12848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-19 17:31:47.677  INFO 12848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-19 17:31:47.764  INFO 12848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-19 17:31:47.765  INFO 12848 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 973 ms
+2020-02-19 17:31:47.962  INFO 12848 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-02-19 17:31:47.962  INFO 12848 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2020-02-19 17:31:47.998  INFO 12848 --- [cluster-ClusterId{value='5e4d0083cda35e4d33932c9b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:2}] to localhost:27017
+2020-02-19 17:31:48.003  INFO 12848 --- [cluster-ClusterId{value='5e4d0083cda35e4d33932c9b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2265199}
+2020-02-19 17:31:48.005  INFO 12848 --- [cluster-ClusterId{value='5e4d0083cda35e4d33932c9b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2020-02-19 17:31:48.290  INFO 12848 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 17:31:48.375  WARN 12848 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-02-19 17:31:48.549  INFO 12848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2020-02-19 17:31:48.554  INFO 12848 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 2.155 seconds (JVM running for 3.105)
+2020-02-19 17:32:02.467  INFO 12848 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-19 17:32:02.467  INFO 12848 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-19 17:32:02.474  INFO 12848 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
