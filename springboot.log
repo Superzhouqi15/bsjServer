@@ -1,33 +1,28 @@
-2020-02-09 00:04:13.654  INFO 18699 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-02-09 00:04:13.704  INFO 18699 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:3, serverValue:295}] to localhost:27017 because the pool has been closed.
-2020-02-09 00:04:13.705  INFO 18699 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:294}] to localhost:27017 because the pool has been closed.
-2020-02-09 14:39:18.056  INFO 3979 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on sam-pc with PID 3979 (/home/sam/IdeaProjects/baisaiju/target/classes started by sam in /home/sam/IdeaProjects/baisaiju)
-2020-02-09 14:39:18.060  INFO 3979 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
-2020-02-09 14:39:22.720  INFO 3979 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-02-09 14:39:22.771  INFO 3979 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32ms. Found 0 MongoDB repository interfaces.
-2020-02-09 14:39:24.108  INFO 3979 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
-2020-02-09 14:39:24.174  INFO 3979 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-02-09 14:39:24.193  INFO 3979 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-02-09 14:39:24.594  INFO 3979 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-02-09 14:39:24.598  INFO 3979 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6240 ms
-2020-02-09 14:39:25.805  INFO 3979 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2020-02-09 14:39:25.806  INFO 3979 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2020-02-09 14:39:25.959  INFO 3979 --- [cluster-ClusterId{value='5e3fa91d6cb7206c7a34ea9e', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
-2020-02-09 14:39:25.967  INFO 3979 --- [cluster-ClusterId{value='5e3fa91d6cb7206c7a34ea9e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 16]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1409815}
-2020-02-09 14:39:25.968  INFO 3979 --- [cluster-ClusterId{value='5e3fa91d6cb7206c7a34ea9e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2020-02-09 14:39:27.485  INFO 3979 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-02-09 14:39:27.647  WARN 3979 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020-02-09 14:39:27.905  INFO 3979 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
-2020-02-09 14:39:27.919  INFO 3979 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 11.719 seconds (JVM running for 15.591)
-2020-02-09 14:39:28.154  INFO 3979 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-02-09 14:39:28.156  INFO 3979 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-02-09 14:39:28.190  INFO 3979 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
-2020-02-09 14:39:28.306  INFO 3979 --- [http-nio-8099-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
-2020-02-09 14:40:35.465 ERROR 3979 --- [http-nio-8099-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6de4c43f8241f05c263]] with root cause
+2020-02-10 16:56:41.788  INFO 17363 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on sam-pc with PID 17363 (/home/sam/IdeaProjects/baisaiju/target/classes started by sam in /home/sam/IdeaProjects/baisaiju)
+2020-02-10 16:56:41.920  INFO 17363 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
+2020-02-10 16:56:49.258  INFO 17363 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-02-10 16:56:49.374  INFO 17363 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 0 MongoDB repository interfaces.
+2020-02-10 16:56:51.397  INFO 17363 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2020-02-10 16:56:51.429  INFO 17363 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 16:56:51.436  INFO 17363 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-10 16:56:52.201  INFO 17363 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 16:56:52.202  INFO 17363 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9928 ms
+2020-02-10 16:56:53.387  INFO 17363 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-02-10 16:56:53.388  INFO 17363 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2020-02-10 16:56:53.851  INFO 17363 --- [cluster-ClusterId{value='5e411ad5cd13490f57b26add', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+2020-02-10 16:56:53.858  INFO 17363 --- [cluster-ClusterId{value='5e411ad5cd13490f57b26add', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 16]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2980641}
+2020-02-10 16:56:53.859  INFO 17363 --- [cluster-ClusterId{value='5e411ad5cd13490f57b26add', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2020-02-10 16:56:55.945  INFO 17363 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 16:56:56.330  WARN 17363 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-02-10 16:56:56.835  INFO 17363 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2020-02-10 16:56:56.843  INFO 17363 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 18.52 seconds (JVM running for 22.533)
+2020-02-10 16:57:09.504  INFO 17363 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 16:57:09.505  INFO 17363 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 16:57:09.511  INFO 17363 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-02-10 16:57:09.592  INFO 17363 --- [http-nio-8099-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
+2020-02-10 16:57:15.832 ERROR 17363 --- [http-nio-8099-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
-java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6de4c43f8241f05c263]
-	at org.bson.types.ObjectId.parseHexString(ObjectId.java:529) ~[bson-3.11.2.jar:na]
-	at org.bson.types.ObjectId.<init>(ObjectId.java:205) ~[bson-3.11.2.jar:na]
+java.lang.NullPointerException: null
 	at com.baisaiju.springboot.dao.UserTemplate.addFavorite(UserTemplate.java:44) ~[classes/:na]
 	at com.baisaiju.springboot.controller.UserController.addFavorite(UserController.java:94) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
@@ -81,13 +76,11 @@ java.lang.IllegalArgumentException: invalid hexadecimal representation of an Obj
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2020-02-09 15:02:06.580  INFO 3979 --- [http-nio-8099-exec-3] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:33}] to localhost:27017
-2020-02-09 15:02:06.629 ERROR 3979 --- [http-nio-8099-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+2020-02-10 16:58:04.455 ERROR 17363 --- [http-nio-8099-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
-java.io.IOException: java.io.FileNotFoundException: /usr/share/nginx/html/test/file/README.md (没有那个文件或目录)
-	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:122) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile.transferTo(StandardMultipartHttpServletRequest.java:256) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at com.baisaiju.springboot.controller.UserController.upload(UserController.java:136) ~[classes/:na]
+java.lang.NullPointerException: null
+	at com.baisaiju.springboot.dao.UserTemplate.delFavorite(UserTemplate.java:51) ~[classes/:na]
+	at com.baisaiju.springboot.controller.UserController.delFavorite(UserController.java:101) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -138,20 +131,10 @@ java.io.IOException: java.io.FileNotFoundException: /usr/share/nginx/html/test/f
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-Caused by: java.io.FileNotFoundException: /usr/share/nginx/html/test/file/README.md (没有那个文件或目录)
-	at java.base/java.io.FileOutputStream.open0(Native Method) ~[na:na]
-	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:298) ~[na:na]
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237) ~[na:na]
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:187) ~[na:na]
-	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.write(DiskFileItem.java:406) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationPart.write(ApplicationPart.java:120) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	... 52 common frames omitted
 
-2020-02-09 15:11:38.711 ERROR 3979 --- [http-nio-8099-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6e8bc43f8241f05c266]] with root cause
+2020-02-10 16:58:06.060 ERROR 17363 --- [http-nio-8099-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
-java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6e8bc43f8241f05c266]
-	at org.bson.types.ObjectId.parseHexString(ObjectId.java:529) ~[bson-3.11.2.jar:na]
-	at org.bson.types.ObjectId.<init>(ObjectId.java:205) ~[bson-3.11.2.jar:na]
+java.lang.NullPointerException: null
 	at com.baisaiju.springboot.dao.UserTemplate.addFavorite(UserTemplate.java:44) ~[classes/:na]
 	at com.baisaiju.springboot.controller.UserController.addFavorite(UserController.java:94) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
@@ -205,11 +188,9 @@ java.lang.IllegalArgumentException: invalid hexadecimal representation of an Obj
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2020-02-09 15:44:36.745 ERROR 3979 --- [http-nio-8099-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6db4c43f8241f05c25f]] with root cause
+2020-02-10 16:59:30.439 ERROR 17363 --- [http-nio-8099-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
-java.lang.IllegalArgumentException: invalid hexadecimal representation of an ObjectId: [5e3e6db4c43f8241f05c25f]
-	at org.bson.types.ObjectId.parseHexString(ObjectId.java:529) ~[bson-3.11.2.jar:na]
-	at org.bson.types.ObjectId.<init>(ObjectId.java:205) ~[bson-3.11.2.jar:na]
+java.lang.NullPointerException: null
 	at com.baisaiju.springboot.dao.UserTemplate.addFavorite(UserTemplate.java:44) ~[classes/:na]
 	at com.baisaiju.springboot.controller.UserController.addFavorite(UserController.java:94) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
@@ -263,149 +244,11 @@ java.lang.IllegalArgumentException: invalid hexadecimal representation of an Obj
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2020-02-09 15:46:13.033 ERROR 3979 --- [http-nio-8099-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-02-10 16:59:49.926 ERROR 17363 --- [http-nio-8099-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
 java.lang.NullPointerException: null
-	at java.base/java.util.Objects.requireNonNull(Objects.java:221) ~[na:na]
-	at com.baisaiju.springboot.dao.ClassifierTemplate.findByType(ClassifierTemplate.java:48) ~[classes/:na]
-	at com.baisaiju.springboot.controller.CompetitionController.recommend(CompetitionController.java:78) ~[classes/:na]
-	at jdk.internal.reflect.GeneratedMethodAccessor62.invoke(Unknown Source) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2020-02-09 15:46:13.079 ERROR 3979 --- [http-nio-8099-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-
-java.lang.NullPointerException: null
-	at java.base/java.util.Objects.requireNonNull(Objects.java:221) ~[na:na]
-	at com.baisaiju.springboot.dao.ClassifierTemplate.findByType(ClassifierTemplate.java:48) ~[classes/:na]
-	at com.baisaiju.springboot.controller.CompetitionController.recommend(CompetitionController.java:78) ~[classes/:na]
-	at jdk.internal.reflect.GeneratedMethodAccessor62.invoke(Unknown Source) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2020-02-09 15:49:07.700  INFO 3979 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:49:07.726  INFO 3979 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:2}] to localhost:27017 because the pool has been closed.
-2020-02-09 15:49:07.727  INFO 3979 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:3, serverValue:33}] to localhost:27017 because the pool has been closed.
-2020-02-09 15:49:16.083  INFO 10815 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on sam-pc with PID 10815 (/home/sam/IdeaProjects/baisaiju/target/classes started by sam in /home/sam/IdeaProjects/baisaiju)
-2020-02-09 15:49:16.085  INFO 10815 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
-2020-02-09 15:49:16.835  INFO 10815 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-02-09 15:49:16.847  INFO 10815 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 MongoDB repository interfaces.
-2020-02-09 15:49:17.388  INFO 10815 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
-2020-02-09 15:49:17.395  INFO 10815 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-02-09 15:49:17.396  INFO 10815 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-02-09 15:49:17.472  INFO 10815 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-02-09 15:49:17.473  INFO 10815 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1300 ms
-2020-02-09 15:49:17.928  INFO 10815 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2020-02-09 15:49:17.928  INFO 10815 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2020-02-09 15:49:17.995  INFO 10815 --- [cluster-ClusterId{value='5e3fb97dfe082919155fe44b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:160}] to localhost:27017
-2020-02-09 15:49:18.003  INFO 10815 --- [cluster-ClusterId{value='5e3fb97dfe082919155fe44b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 16]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2006489}
-2020-02-09 15:49:18.005  INFO 10815 --- [cluster-ClusterId{value='5e3fb97dfe082919155fe44b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2020-02-09 15:49:18.523  INFO 10815 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:49:18.628  WARN 10815 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020-02-09 15:49:18.847  INFO 10815 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
-2020-02-09 15:49:18.867  INFO 10815 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 3.873 seconds (JVM running for 6.334)
-2020-02-09 15:49:46.917  INFO 10815 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-02-09 15:49:46.917  INFO 10815 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-02-09 15:49:46.942  INFO 10815 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
-2020-02-09 15:49:47.073  INFO 10815 --- [http-nio-8099-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:162}] to localhost:27017
-2020-02-09 15:49:50.996 ERROR 10815 --- [http-nio-8099-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-
-java.lang.NullPointerException: null
-	at java.base/java.util.Objects.requireNonNull(Objects.java:221) ~[na:na]
-	at com.baisaiju.springboot.dao.ClassifierTemplate.findByType(ClassifierTemplate.java:49) ~[classes/:na]
-	at com.baisaiju.springboot.controller.CompetitionController.recommend(CompetitionController.java:79) ~[classes/:na]
+	at com.baisaiju.springboot.dao.UserTemplate.delFavorite(UserTemplate.java:51) ~[classes/:na]
+	at com.baisaiju.springboot.controller.UserController.delFavorite(UserController.java:101) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -457,12 +300,11 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2020-02-09 15:49:51.005 ERROR 10815 --- [http-nio-8099-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-02-10 17:00:04.538 ERROR 17363 --- [http-nio-8099-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
 java.lang.NullPointerException: null
-	at java.base/java.util.Objects.requireNonNull(Objects.java:221) ~[na:na]
-	at com.baisaiju.springboot.dao.ClassifierTemplate.findByType(ClassifierTemplate.java:49) ~[classes/:na]
-	at com.baisaiju.springboot.controller.CompetitionController.recommend(CompetitionController.java:79) ~[classes/:na]
+	at com.baisaiju.springboot.dao.UserTemplate.addFavorite(UserTemplate.java:44) ~[classes/:na]
+	at com.baisaiju.springboot.controller.UserController.addFavorite(UserController.java:94) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -514,109 +356,5 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2020-02-09 15:51:54.102  INFO 10815 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:51:54.104  INFO 10815 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:162}] to localhost:27017 because the pool has been closed.
-2020-02-09 15:51:58.326  INFO 12460 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on sam-pc with PID 12460 (/home/sam/IdeaProjects/baisaiju/target/classes started by sam in /home/sam/IdeaProjects/baisaiju)
-2020-02-09 15:51:58.327  INFO 12460 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
-2020-02-09 15:51:58.912  INFO 12460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-02-09 15:51:58.923  INFO 12460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 MongoDB repository interfaces.
-2020-02-09 15:51:59.191  INFO 12460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
-2020-02-09 15:51:59.198  INFO 12460 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-02-09 15:51:59.199  INFO 12460 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-02-09 15:51:59.249  INFO 12460 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-02-09 15:51:59.250  INFO 12460 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 886 ms
-2020-02-09 15:51:59.388  INFO 12460 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2020-02-09 15:51:59.388  INFO 12460 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2020-02-09 15:51:59.425  INFO 12460 --- [cluster-ClusterId{value='5e3fba1f8ad43f403955cfd5', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:168}] to localhost:27017
-2020-02-09 15:51:59.435  INFO 12460 --- [cluster-ClusterId{value='5e3fba1f8ad43f403955cfd5', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 16]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=818776}
-2020-02-09 15:51:59.436  INFO 12460 --- [cluster-ClusterId{value='5e3fba1f8ad43f403955cfd5', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2020-02-09 15:51:59.704  INFO 12460 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:51:59.778  WARN 12460 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020-02-09 15:51:59.826  INFO 12460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
-2020-02-09 15:51:59.829  INFO 12460 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 2.029 seconds (JVM running for 2.628)
-2020-02-09 15:52:05.220  INFO 12460 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-02-09 15:52:05.220  INFO 12460 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-02-09 15:52:05.224  INFO 12460 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2020-02-09 15:52:05.264  INFO 12460 --- [http-nio-8099-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:169}] to localhost:27017
-2020-02-09 15:52:10.124  INFO 12460 --- [http-nio-8099-exec-6] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:170}] to localhost:27017
-2020-02-09 15:54:49.285  INFO 12460 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:54:49.302  INFO 12460 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:169}] to localhost:27017 because the pool has been closed.
-2020-02-09 15:54:49.312  INFO 12460 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:3, serverValue:170}] to localhost:27017 because the pool has been closed.
-2020-02-09 15:54:52.811  INFO 14253 --- [main] c.b.springboot.SpringbootApplication     : Starting SpringbootApplication on sam-pc with PID 14253 (/home/sam/IdeaProjects/baisaiju/target/classes started by sam in /home/sam/IdeaProjects/baisaiju)
-2020-02-09 15:54:52.813  INFO 14253 --- [main] c.b.springboot.SpringbootApplication     : The following profiles are active: a
-2020-02-09 15:54:53.247  INFO 14253 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-02-09 15:54:53.260  INFO 14253 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 MongoDB repository interfaces.
-2020-02-09 15:54:53.516  INFO 14253 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
-2020-02-09 15:54:53.523  INFO 14253 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-02-09 15:54:53.523  INFO 14253 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-02-09 15:54:53.565  INFO 14253 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-02-09 15:54:53.565  INFO 14253 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 716 ms
-2020-02-09 15:54:53.714  INFO 14253 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2020-02-09 15:54:53.715  INFO 14253 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2020-02-09 15:54:53.751  INFO 14253 --- [cluster-ClusterId{value='5e3fbacda20c4c5026cd223b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:176}] to localhost:27017
-2020-02-09 15:54:53.759  INFO 14253 --- [cluster-ClusterId{value='5e3fbacda20c4c5026cd223b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 16]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=4194162}
-2020-02-09 15:54:53.762  INFO 14253 --- [cluster-ClusterId{value='5e3fbacda20c4c5026cd223b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2020-02-09 15:54:54.028  INFO 14253 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-02-09 15:54:54.094  WARN 14253 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020-02-09 15:54:54.141  INFO 14253 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
-2020-02-09 15:54:54.144  INFO 14253 --- [main] c.b.springboot.SpringbootApplication     : Started SpringbootApplication in 1.926 seconds (JVM running for 2.718)
-2020-02-09 15:55:06.448  INFO 14253 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-02-09 15:55:06.448  INFO 14253 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-02-09 15:55:06.457  INFO 14253 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2020-02-09 15:55:06.519  INFO 14253 --- [http-nio-8099-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:178}] to localhost:27017
-2020-02-09 15:55:13.593  INFO 14253 --- [http-nio-8099-exec-6] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:179}] to localhost:27017
-2020-02-09 16:05:42.717 ERROR 14253 --- [http-nio-8099-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-
-java.lang.NullPointerException: null
-	at com.baisaiju.springboot.controller.UserController.upload(UserController.java:126) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
+2020-02-10 17:04:56.347  INFO 17363 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 17:04:56.350  INFO 17363 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:2}] to localhost:27017 because the pool has been closed.
