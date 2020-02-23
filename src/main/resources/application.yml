@@ -1,10 +1,26 @@
-
+server:
+  port: 8099
 spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
   profiles:
     active: a
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: baisaiju
+      database: bsj
+      username: root
+      password: Superzhouqi/15
+      authentication-database: admin
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
 
