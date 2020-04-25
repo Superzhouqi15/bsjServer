@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * @author dav1d
  */
-
+@Data
 @Document(collection = "user")
 public class User {
     private ObjectId id;
