@@ -18,6 +18,30 @@ public class Classifier{
     private String type;
     private List<ObjectId> competitionList;
 
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public List<ObjectId> getCompetitionList() {
+        return competitionList;
+    }
+
+    public void setCompetitionList(List<ObjectId> competitionList) {
+        this.competitionList = competitionList;
+    }
+
     public void addCompetition(ObjectId objectId){
         if (this.competitionList == null){
             this.competitionList = new ArrayList<>();
